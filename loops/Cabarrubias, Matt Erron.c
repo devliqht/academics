@@ -15,7 +15,7 @@ int main(void) {
             if (num % 2 != 0) {
                 printf("%d\n", num);
             } else {
-                printf("Negative Value\n");
+                printf("Amazing negative Value\n");
             }
         }
     }
