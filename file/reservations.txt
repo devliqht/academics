@@ -1,0 +1,8 @@
+Name: John Doe
+Number of guests: 2
+Room type: Deluxe
+
+Name: Mary Ann
+Number of guests: 3
+Room type: Standard
+
