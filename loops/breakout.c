@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> 
 
 int main(void) {
     int size, sum = 0, count = 0;
@@ -10,7 +10,7 @@ int main(void) {
         count++;
         if (arr[i] % 2 == 0) {
             sum += arr[i];     
-        }
+        }           
         if (sum > 100)
             break;
     }
