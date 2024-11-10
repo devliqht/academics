@@ -11,7 +11,7 @@ int main(void) {
             if (k % 2 != 0) {
                 (count % 2 != 0) ? printf("W ") : printf("B ");
             } else {
-                (count %2 != 0) ? printf("B ") : printf("W ");
+                (count % 2 != 0) ? printf("B ") : printf("W ");
             }
             count--;
         }
