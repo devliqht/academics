@@ -13,7 +13,7 @@ int main(void) {
 
     printf("\nCourse:\t\tProgramming 1\n");
     printf("Exercises:\n");
-    printf("\tLab Exercise 1:\t\t%d/%d\n", exer1, exercises);
+    printf("\tLab Exercise 1:\t\t%d/%d\n", exer1, exercises);               
     printf("\tLab Exercise 2:\t\t%d/%d\n", exer2, exercises);
     printf("\tLab Exercise 3:\t\t%d/%d\n", exer3, exercises);
     printf("Exams:\n");
