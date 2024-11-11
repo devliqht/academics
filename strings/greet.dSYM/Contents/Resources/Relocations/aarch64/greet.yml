@@ -1,9 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/mattcabarrubias/Documents/Code/Codechum/strings/greet'
-relocations:
-  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _generateGreeting, symObjAddr: 0x0, symBinAddr: 0x100003E98, symSize: 0x6C }
-  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _generateGreeting, symObjAddr: 0x0, symBinAddr: 0x100003E98, symSize: 0x6C }
-  - { offsetInCU: 0x65, offset: 0x65, size: 0x8, addend: 0x0, symName: _greet, symObjAddr: 0x6C, symBinAddr: 0x100003F04, symSize: 0x34 }
-  - { offsetInCU: 0x89, offset: 0x89, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xA0, symBinAddr: 0x100003F38, symSize: 0x2C }
-...
