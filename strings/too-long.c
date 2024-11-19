@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-
 int main(void) {
     int n;
     printf("Enter number of strings: "); 
@@ -14,7 +13,6 @@ int main(void) {
         char buffer[100];
         printf("Enter string %d: ", i + 1);
         scanf(" %s", buffer);
-        
         strings[i] = malloc(strlen(buffer) + 1);
         strcpy(strings[i], buffer);
     }
