@@ -341,7 +341,7 @@ int isSortedAscending(int arr[], int count) {
 void moveSmallestToFirst(int arr[], int count) {
     int min = arr[0], ndxmin;
     for (int i = 0; i < count; i++) {
-        if (arr[i] <= min) {
+        if (arr[i] <= min) { 
             min = arr[i];
             ndxmin = i;
         }
