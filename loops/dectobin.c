@@ -13,5 +13,5 @@ int main(void) {
         First iteration: bin = 0;
         Second iteration: 
     */
-    printf("Binary equivalent: %d", bin);
+    printf("Binary equivalent: %d\n", bin);
 }
