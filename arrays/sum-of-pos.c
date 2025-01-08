@@ -9,7 +9,7 @@ int main(void) {
     printf("Enter array values: \n");
     for (int i = 0; i < size; i++) scanf("%d", &arr[i]);
     printf("Sum of positive elements: %d", positiveSum(arr, size));
-    
+
 }
 
 int positiveSum(int arr[], int arrSize) {

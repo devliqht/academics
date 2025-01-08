@@ -13,17 +13,40 @@
 int main(void) {
     int size;
     printf("Enter matrix size: "); scanf("%d", &size);
-    int spiral[size][size], startCol = 0, startRow = 0, endCol = size, endRow = size;
+    int spiral[size][size], startCol = 0, startRow = 0, endCol = size - 1, endRow = size - 1;
     
     int count = 1;
-    for(int i = 0; i < size; i++) {
-        for (int j = startCol; j < endCol; j++) {
-            printf("%d ", count);
-            if (j < endCol) {
-                startCol = endCol;
-            }
-            count++;
+    while (startRow <= endRow && startCol <= endCol) {
+        for (int i = startCol; i <= endCol; i++) {
+            spiral[startRow][i] = count++;
         }
+        startRow++;
+        
+        for (int i = startRow; i <= endRow; i++) {
+            spiral[i][endCol] = count++;
+        }
+        endCol--;
+        
+        if (startRow <= endRow) {
+            for (int i = endCol; i >= startCol; i--) {
+                spiral[endRow][i] = count++;
+            }
+            endRow--;
+        }
+        
+        if (startCol <= endCol) {
+            for (int i = endRow; i >= startRow; i--) {
+                spiral[i][startCol] = count++;
+            }
+            startCol++;
+        }
+    }
+    
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size; j++) {
+            printf("%d ", spiral[i][j]);
+        }
+        printf("\n");
     }
 
 }
