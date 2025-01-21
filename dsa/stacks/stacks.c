@@ -16,12 +16,15 @@ Stack* createStack(int n) {
     newStack->array = (int*)malloc(newStack->capacity * sizeof(int));
     return newStack;
 }
+
 int isStackEmpty(Stack* stack) {
     return stack->top == -1;
 }
+
 int isStackFull(Stack* stack) {
     return stack->top == stack->capacity - 1;
 }
+
 void push(Stack* stack, int elem) {
     if (isStackFull(stack)) {
         printf("Stack Overflow: Cannot push %d\n", elem);
@@ -29,6 +32,7 @@ void push(Stack* stack, int elem) {
     }
     stack->array[++stack->top] = elem;
 }
+
 int pop(Stack* stack) {
     if (isStackEmpty(stack)) {
         printf("Stack Underflow: Cannot pop from an empty stack\n");
