@@ -13,6 +13,13 @@ int main() {
     int bitmask = 1 << position;
     int new_num = number ^ bitmask;
 
+
+    switch(bitmask) {
+        case 1:
+            printf("Hello");
+            break;
+        
+    }
     printf("The new number after toggling bit at position %d is: %d\n", position, new_num);
     
     return 0;
