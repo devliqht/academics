@@ -5,5 +5,4 @@
 *.elf
 
 # Ignore all files without an extension and executable permission
-*
 !*/
