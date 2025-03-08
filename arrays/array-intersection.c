@@ -15,10 +15,13 @@ int main(void) {
     int* arr2 = getArrayInput("Enter elements of second array: ", s2);
     
     int* result = findIntersection(arr1, arr2, s1, s2, &intersectionSize);
+
     printf("Intersection of the two arrays: ");
     for (int i = 0; i < intersectionSize; i++) printf("%d ", *(result+i));
     
-    free(arr1); free(arr2); free(result);
+    free(arr1); 
+    free(arr2); 
+    free(result);
     
     return 0;
     
