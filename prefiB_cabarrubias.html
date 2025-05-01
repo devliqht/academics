@@ -1,0 +1,247 @@
+<!-- CIS 1202 - MW 7:30 - 10:00 SET B-->
+<!-- Features a responsive layout and semantic styled HTML -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefi_Cabarrubias</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: 0.2s all;
+            scroll-behavior: smooth;
+        }
+
+        .main-header {
+            width: 100%;
+            text-align: center;
+        }
+
+        .header-title {
+            background: rgb(193, 57, 43);
+            color: white;
+            padding: 0.875rem;
+        }
+
+        .subheader {
+            background: rgb(171, 50, 39);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .subheader a {
+            text-decoration: none;
+            color: white;
+            padding: 0.775rem;
+        }
+
+        .subheader a:hover {
+            background: rgb(212, 62, 49);
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding-bottom: 2rem;
+        }
+
+        .featured {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: 58%;
+            padding-top: 2rem;
+        }
+
+        .featured-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .featured-item {
+            display: flex;
+            flex-direction: row;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .featured-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .featured-img {
+            max-width: 320px;
+            width: 320px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+
+        .featured-title, .post-details h3 {
+            color: rgb(190, 38, 34);
+        }
+
+        .featured-title:hover, .post-details h3:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .featured-content, .featured-author, .post-details p {
+            color: rgb(75, 75, 75);
+            text-align: justify;
+        }
+
+        .other {
+            padding-top: 2rem;
+            width: 58%;
+        }
+
+        .other-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            row-gap: 2rem;
+            column-gap: 1rem;
+        }
+
+        .post-item {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-items: start;
+            padding-top: 1rem;
+        }
+
+        .post-img {
+            width: 112px;
+            height: auto;
+            border-radius: 0.5rem;
+            object-fit: contain;
+        }
+
+        .post-img:hover, .featured-img:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        .post-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .post-details p {
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 1024px) {
+            .featured-item {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .post-item {
+                flex-direction: column;
+            }
+            .other-container {
+                grid-template-columns: 1fr;
+            }
+
+            .featured, .other {
+                width: 100%;
+            }
+
+            main {
+                padding: 1rem;
+                padding-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="main-header">
+        <div class="header-title">
+            <h1 id="blog-name"></h1>
+        </div>
+        <div class="subheader">
+            <a href="#home">Home</a>
+            <a href="#entertainment">Entertainment</a>
+            <a href="#news">News</a>
+            <a href="#sports">Sports</a>
+            <a href="#more">More</a>
+        </div>
+    </header>
+    <main>
+        <div class="featured">
+            <h3>FEATURED</h3>
+            <div class="featured-container" id="featured-container">
+                
+            </div>
+            <hr style="height: 1px;"/>
+        </div>
+        
+        <div class="other">
+            <h3 style="padding-bottom: 1rem;">OTHER POSTS</h3>
+            <div class="other-container" id="other-container">
+
+            </div>
+        </div>
+    </main>
+    <script>
+        const featuredCont = document.getElementById("featured-container");
+        const otherCont = document.getElementById("other-container");
+        const blogName = document.getElementById("blog-name");
+        const apiURL = "https://web1sem124.dcism.org/MiniBlog.php";
+
+        document.addEventListener("DOMContentLoaded", (e) => {  
+            fetch(apiURL)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                blogName.innerText = data.blog_name;
+                const featuredItem = document.createElement("div");
+                featuredItem.className = "featured-item";
+                featuredItem.innerHTML = `
+                    <img class="featured-img" src="${data.featured_post.image}" />
+                    <div class="featured-details">
+                        <h2 class="featured-title"> ${data.featured_post.title} </h2>
+                        <p class="featured-content"> ${data.featured_post.content} </p>
+                        <p class="featured-author"> <strong>${data.featured_post.author}</strong> - ${data.featured_post.date} </p>
+                    </div>
+                `;
+
+                featuredCont.appendChild(featuredItem);
+
+                data.other_posts.forEach(element => {
+                    const postItem = document.createElement("div");
+                    postItem.className = "post-item";
+                    postItem.innerHTML = `
+                        <img class="post-img" src="${element.image}" /> 
+                        <div class="post-details"> 
+                            <h3> ${element.title} </h3>
+                            <p> ${element.content} </p>
+                            <p class="featured-author"> <strong>${element.author}</strong> - ${element.date} </p>
+                        </div>
+                    `;
+                    otherCont.appendChild(postItem);    
+                });
+            })
+            .catch(error => {
+                console.log("ERROR: ", error);
+            })
+        })
+    </script>
+</body>
+</html>
